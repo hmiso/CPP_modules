@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmiso <hmiso@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 16:12:22 by hmiso             #+#    #+#             */
-/*   Updated: 2020/12/18 19:31:28 by hmiso            ###   ########.fr       */
+/*   Updated: 2020/12/18 21:41:13 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,29 +205,35 @@ void	searh_contact(Phone_list *list, int i)
 {
 	int index;
 	std::string buf;
-	std::cout << ">";
-	std::cin >> buf;
-	if (buf.length() > 1)
+	while(1)
 	{
-		std::cout << "Error!!! Enter the contact number from 1 to 8" << std::endl;
-		searh_contact(list, i);
-	}
-	else
-	{
-		if (buf[0] >= '1' && buf[0] <= '9')
-			index = std::stoi(buf);
+		std::cout << ">";
+		std::cin >> buf;
+		if (buf.length() > 1)
+		{
+			std::cout << "Error!!! Enter the contact number from 1 to "<< i << std::endl;
+			continue;
+		}
 		else
 		{
-			std::cout << "Error!!! Enter the contact number from 1 to 8" << std::endl;
-			searh_contact(list, i);
+			if (buf[0] >= '1' && buf[0] <= '9')
+				index = std::stoi(buf);
+			else
+			{
+				std::cout << "Error!!! Enter the contact number from 1 to "<< i << std::endl;
+				continue;
+			}
 		}
-	}
-	if (index - 1 < i && index - 1 >= 0)
-		print_contact(list, index - 1);
-	else
-	{
-		std::cout << "Error!!! Enter the contact number from 1 to 8" << std::endl;
-		searh_contact(list, i);
+		if (index - 1 < i && index - 1 >= 0)
+		{
+			print_contact(list, index - 1);
+			break;
+		}
+		else
+		{
+			std::cout << "Error!!! Enter the contact number from 1 to " << i << std::endl;
+			continue;
+		}
 	}
 }
 
@@ -244,7 +250,7 @@ int main()
 		std::cin >> comand;
 		if (comand == "ADD")
 		{
-			if (i > 8)
+			if (i > 7)
 			{
 				std::cout << "Error: book is full!" << std::endl;
 				continue;
