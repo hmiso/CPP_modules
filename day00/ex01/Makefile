@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+         #
+#    By: hmiso <hmiso@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/14 21:35:31 by hmiso             #+#    #+#              #
-#    Updated: 2020/12/18 22:53:21 by hmiso            ###   ########.fr        #
+#    Updated: 2020/12/19 09:32:10 by hmiso            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=megaphone
+NAME=PhoneBook
 
 OBJ_FILES = main.o
 
