@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmiso <hmiso@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/19 20:16:54 by hmiso             #+#    #+#             */
-/*   Updated: 2020/12/20 18:40:06 by hmiso            ###   ########.fr       */
+/*   Created: 2020/12/20 16:06:01 by hmiso             #+#    #+#             */
+/*   Updated: 2020/12/20 18:06:02 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBI_HPP
+#include "Zombie.hpp"
 
-#include <iostream>
-
-class Zombie{
-public:
-	Zombie();
-	Zombie(std::string name, std::string type);
-	~Zombie();
-	void announce();
-	void set_type(std::string type);
+class ZombieHorde{
 private:
-	std::string name;
-	std::string type;
+	Zombie *horde;
+public:
+	ZombieHorde(int i);
+	~ZombieHorde();
+	void announce();
+	// void set_name(Zombie& ptr, std::string name);
 };
-
-#endif

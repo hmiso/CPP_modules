@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmiso <hmiso@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/19 19:06:38 by hmiso             #+#    #+#             */
-/*   Updated: 2020/12/20 18:40:55 by hmiso            ###   ########.fr       */
+/*   Created: 2020/12/20 16:01:04 by hmiso             #+#    #+#             */
+/*   Updated: 2020/12/20 16:27:16 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,22 @@ void	Zombie::announce()
 	std::cout << "<" << name << "(" << type << ")"<< ">" << "Braiiiiiiinnnssss..." << std::endl;
 }
 
-void Zombie::set_type(std::string type)
-{
-	this->type = type;
-}
-
 Zombie::Zombie()
 {
 	this->name = "";
 	this->type = "";
 }
 
-Zombie::Zombie(std::string name, std::string type)
+Zombie::Zombie(std::string name)
 {
 	this->name = name;
-	this->type = type;
+	this->type = "";
 }
 
+void	Zombie::set_type(std::string type)
+{
+	this->type = type;
+}
 
 Zombie::~Zombie()
 {
