@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
+/*   By: hmiso <hmiso@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 19:50:14 by hmiso             #+#    #+#             */
-/*   Updated: 2020/12/21 23:46:37 by hmiso            ###   ########.fr       */
+/*   Updated: 2020/12/22 17:27:56 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,42 @@
 
 int main(int argc, char **argv)
 {
-	std::ifstream in;
-	std::ofstream out;
-	std::string str = argv[1] + ".REPLASE";
-	std::string str1 = "Hello";
-	std::string str2 = "world";
 	if (argc != 4)
 	{
 		std::cout << "Wrong argument!" << std::endl;
 		exit(0);
 	}
-	out.open(str);
+	std::ifstream in;
+	std::ofstream out;
+	std::string file = argv[1];
+	std::string str1 = argv[2];
+	std::string str2 = argv[3];
+	std::string buf;
+	if (!str1.length() || !str2.length() || !file.length())
+	{
+		std::cout << "Bad argument!" << std::endl;
+		exit(0);
+	}
+	file = file + ".REPLASE";
 	in.open(argv[1]);
-	if (!in.is_open() || !out.is_open())
+	if (!in.is_open())
 	{
 		std::cout << "Bad file!" << std::endl;
 		exit(0);
 	}
-
-	str1 = argv[2];
-	str2 = argv[3];
-	while(str.find(str1) != -1)
-		str.replace(str.find(str1), str2.size(), str2);
-	std::cout << str << std::endl;
+	out.open(file);
+	if (!out.is_open())
+	{
+		std::cout << "Bad file!" << std::endl;
+		exit(0);
+	}
+	while (getline(in, buf))
+	{
+		while(buf.find(str1) != -1)
+			buf.replace(buf.find(str1), str2.size(), str2);
+		if (in.eof())
+			out << buf;
+		else
+			out << buf << std::endl;
+	}
 }

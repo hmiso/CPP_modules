@@ -6,57 +6,58 @@
 /*   By: hmiso <hmiso@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 17:43:04 by hmiso             #+#    #+#             */
-/*   Updated: 2020/12/21 19:18:34 by hmiso            ###   ########.fr       */
+/*   Updated: 2020/12/22 16:50:01 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-class Weapon{
-private:
-	std::string _type;
-public:
-	Weapon(){};
-	Weapon(std::string type) {
-		_type = type;
-	};
-	std::string& getType(){
-		return this->_type;
-	};
-	void	setType(std::string type){
-		this->_type = type;
-	};
-};
+// class Weapon{
+// private:
+// 	std::string _type;
+// public:
+// 	Weapon(){};
+// 	Weapon(std::string type) {
+// 		_type = type;
+// 	};
+// 	std::string& getType(){
+// 		return this->_type;
+// 	};
+// 	void	setType(std::string type){
+// 		this->_type = type;
+// 	};
+// };
 
-class HumanA{
-private:
-	std::string _name;
-	Weapon *_weapon;
-public:
-	HumanA(std::string name, Weapon& weapon){
-		_weapon = &weapon;
-		_name = name;
-	}
-	void attack(){
-		std::cout << _name << " attacks with his " << _weapon->getType() << std::endl;
-	};
-};
+// class HumanA{
+// private:
+// 	std::string _name;
+// 	Weapon *_weapon;
+// public:
+// 	HumanA(std::string name, Weapon& weapon){
+// 		_weapon = &weapon;
+// 		_name = name;
+// 	}
+// 	void attack(){
+// 		std::cout << _name << " attacks with his " << _weapon->getType() << std::endl;
+// 	};
+// };
 
-class HumanB{
-private:
-	std::string _name;
-	Weapon *_weapon;
-public:
-	HumanB(std::string name){
-		_name = name;
-	}
-	void setWeapon(Weapon& weapon){
-		_weapon = &weapon;
-	};
-	void attack(){
-		std::cout << _name << " attacks with his " << _weapon->getType() << std::endl;
-	};
-};
+// class HumanB{
+// private:
+// 	std::string _name;
+// 	Weapon *_weapon;
+// public:
+// 	HumanB(std::string name){
+// 		_name = name;
+// 	}
+// 	void setWeapon(Weapon& weapon){
+// 		_weapon = &weapon;
+// 	};
+// 	void attack(){
+// 		std::cout << _name << " attacks with his " << _weapon->getType() << std::endl;
+// 	};
+// };
 
 int main()
 {
