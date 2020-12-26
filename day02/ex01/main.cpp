@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 17:54:25 by hmiso             #+#    #+#             */
-/*   Updated: 2020/12/25 14:34:47 by hmiso            ###   ########.fr       */
+/*   Updated: 2020/12/26 16:52:28 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ public:
 	};	
 	Fixed(const Fixed &a)
 	{
-		std::cout << "Float constructor called" << std::endl;
+		std::cout << "Copy constructor called" << std::endl;
 		*this = a;
 	}
 	~Fixed()
@@ -45,7 +45,7 @@ public:
 	Fixed &operator = (Fixed const &a) 
 	{
 		std::cout << "Assignation operator called" << std::endl;
-		_a = a.getRawBits();
+		this->_a = a._a;
 		return *this;
 	};
 	int getRawBits( void ) const
@@ -58,19 +58,21 @@ public:
 		std::cout << "setRawBits member function called" << std::endl;
 		_a = raw;
 	};
-	int toInt(void)
+	int toInt(void) const
 	{
-		return _a;
+		return _a >> _b;
 	};
-	float toFloat(void)
+	float toFloat(void) const
 	{
-		return _a;
+		return float(_a) / float(1 << _b);
 	};
-	std::ostream operator << (std::ostream &out)
-	{
-		out << 
-	}
 };
+
+std::ostream &operator << (std::ostream &out,const Fixed &a)
+{
+	out << a.toFloat();
+	return (out);
+}
 
 
 int main( void ) {
