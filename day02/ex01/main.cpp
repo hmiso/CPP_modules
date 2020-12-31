@@ -3,77 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmiso <hmiso@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 17:54:25 by hmiso             #+#    #+#             */
-/*   Updated: 2020/12/26 16:52:28 by hmiso            ###   ########.fr       */
+/*   Updated: 2020/12/28 16:31:57 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <math.h>
-
-class Fixed{
-private:
-	int _a;
-	static const int _b = 8;
-public:
-	Fixed()
-	{
-		_a = 0;
-		std::cout << "Default constructor called" << std::endl;
-	};
-	Fixed(int a)
-	{
-		_a = a << _b;
-		std::cout << "Int constructor called" << std::endl;
-	};
-	Fixed(float a)
-	{
-		_a = roundf(a * (1 << _b));
-		std::cout << "Float constructor called" << std::endl;
-	};	
-	Fixed(const Fixed &a)
-	{
-		std::cout << "Copy constructor called" << std::endl;
-		*this = a;
-	}
-	~Fixed()
-	{
-		std::cout << "Destructor called" << std::endl;
-	}
-	Fixed &operator = (Fixed const &a) 
-	{
-		std::cout << "Assignation operator called" << std::endl;
-		this->_a = a._a;
-		return *this;
-	};
-	int getRawBits( void ) const
-	{
-		std::cout << "getRawBits member function called" << std::endl;
-		return _a;
-	};
-	void setRawBits( int const raw )
-	{
-		std::cout << "setRawBits member function called" << std::endl;
-		_a = raw;
-	};
-	int toInt(void) const
-	{
-		return _a >> _b;
-	};
-	float toFloat(void) const
-	{
-		return float(_a) / float(1 << _b);
-	};
-};
-
-std::ostream &operator << (std::ostream &out,const Fixed &a)
-{
-	out << a.toFloat();
-	return (out);
-}
-
+#include "Fixed.hpp"
 
 int main( void ) {
 	Fixed a;
