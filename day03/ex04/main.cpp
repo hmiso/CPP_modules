@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/03 00:48:57 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/05 11:39:56 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/05 12:35:49 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 int main()
 {
 	SuperTrap sp("Super");
-	sp.rangedAttack("xdfg");
-	sp.meleeAttack("xdg");
+	FragTrap fp("Ruck");
+	sp.rangedAttack("Norma");
+	sp.meleeAttack("Mulinet");
+	sp.vaulthunter_dot_exe("Intra Subjekt");
+	sp.ninjaShoebox(fp);
 }
