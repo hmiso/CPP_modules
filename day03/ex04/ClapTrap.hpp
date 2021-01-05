@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/31 19:01:19 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/04 14:39:37 by hmiso            ###   ########.fr       */
+/*   Created: 2021/01/04 15:16:51 by hmiso             #+#    #+#             */
+/*   Updated: 2021/01/05 11:19:50 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAG_TRAP_HPP
-#define FRAG_TRAP_HPP
+#ifndef CLAPTRAPP_HPP
+#define CLAPTRAPP_HPP
 
 #include <iostream>
 #include <unistd.h>
 
-class FragTrap{
-private:
+class ClapTrap{
+protected:
 	int Hit_points;
 	int Max_hit_points;
 	int Energy_points;
@@ -29,19 +29,17 @@ private:
 	int Ranged_attack_damage;
 	int Armor_damage_reduction;
 public:
-
-	FragTrap(std::string name);
+	ClapTrap(std::string name);
+	ClapTrap();
+	ClapTrap(const ClapTrap & ptr);
+	ClapTrap &operator = (const ClapTrap &ptr);	
 	std::string get_name();
-	FragTrap();
-	FragTrap(const FragTrap & ptr);
-	FragTrap &operator = (const FragTrap &ptr);
-	int rangedAttack(std::string const & target);
-	int meleeAttack(std::string const & target);
+	std::string get_type();
 	void takeDamage(unsigned int amount);
-	int vaulthunter_dot_exe(std::string const & target);
 	void recovery_hp(int const hp);
 	void recovery_ep(int const ep);
-	~FragTrap();
+	int rangedAttack(std::string const & target);
+	int meleeAttack(std::string const & target);
+	~ClapTrap();
 };
-
 #endif

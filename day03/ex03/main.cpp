@@ -5,27 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/30 10:54:55 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/01 10:29:58 by hmiso            ###   ########.fr       */
+/*   Created: 2021/01/02 12:00:41 by hmiso             #+#    #+#             */
+/*   Updated: 2021/01/05 10:18:26 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ClapTrap.hpp"
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp" 
+#include "NinjaTrap.hpp"
 
 int main()
 {
-	FragTrap miki("Miki");
-	FragTrap ruck("Ruck");
-	ruck.takeDamage(miki.rangedAttack(ruck.get_name()));
-	ruck.takeDamage(miki.meleeAttack(ruck.get_name()));
-	ruck.takeDamage(miki.vaulthunter_dot_exe(ruck.get_name()));
-	miki.recovery_ep(10);
-	ruck.recovery_hp(10);
-	ruck.recovery_hp(200);
-	ruck.takeDamage(miki.meleeAttack(ruck.get_name()));
-	ruck.takeDamage(miki.meleeAttack(ruck.get_name()));
-	ruck.takeDamage(miki.meleeAttack(ruck.get_name()));
-	ruck.takeDamage(miki.meleeAttack(ruck.get_name()));
-	ruck.takeDamage(miki.meleeAttack(ruck.get_name()));
-	ruck.takeDamage(miki.meleeAttack(ruck.get_name()));
+	NinjaTrap ninja("Skif");
+	FragTrap Ruck("Ruck");
+	ScavTrap siri("Siri");
+	ClapTrap parent;
+	ninja.ninjaShoebox(Ruck);
+	ninja.ninjaShoebox(siri);
+	Ruck.takeDamage(ninja.meleeAttack(Ruck.get_name()));
+	ninja.ninjaShoebox(ninja);
+	ninja.ninjaShoebox(parent);
 }

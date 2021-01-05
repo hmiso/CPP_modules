@@ -6,26 +6,22 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 10:54:55 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/01 10:29:58 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/02 09:42:46 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
-	FragTrap miki("Miki");
-	FragTrap ruck("Ruck");
-	ruck.takeDamage(miki.rangedAttack(ruck.get_name()));
-	ruck.takeDamage(miki.meleeAttack(ruck.get_name()));
-	ruck.takeDamage(miki.vaulthunter_dot_exe(ruck.get_name()));
+	ScavTrap miki("Miki");
+	ScavTrap ruck("Ruck");
+	miki.challengeNewcomer();
+	miki.challengeNewcomer();
+	miki.challengeNewcomer();
+	miki.challengeNewcomer();
 	miki.recovery_ep(10);
-	ruck.recovery_hp(10);
-	ruck.recovery_hp(200);
-	ruck.takeDamage(miki.meleeAttack(ruck.get_name()));
-	ruck.takeDamage(miki.meleeAttack(ruck.get_name()));
-	ruck.takeDamage(miki.meleeAttack(ruck.get_name()));
-	ruck.takeDamage(miki.meleeAttack(ruck.get_name()));
-	ruck.takeDamage(miki.meleeAttack(ruck.get_name()));
-	ruck.takeDamage(miki.meleeAttack(ruck.get_name()));
+	miki.recovery_ep(10);
+	miki.recovery_ep(100);
+	miki.challengeNewcomer();
 }

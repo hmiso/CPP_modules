@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/31 19:04:42 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/04 14:56:54 by hmiso            ###   ########.fr       */
+/*   Created: 2021/01/01 10:42:04 by hmiso             #+#    #+#             */
+/*   Updated: 2021/01/04 15:02:09 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-FragTrap::FragTrap()
+ScavTrap::ScavTrap()
 {
     this->Name ="";
     Hit_points = 0;
@@ -26,31 +26,27 @@ FragTrap::FragTrap()
     type = "";
 }
 
-FragTrap::FragTrap(std::string name)
+ScavTrap::ScavTrap(std::string name)
 {
-    std::cout << "FR4G-TP \u001b[35m <" << name << ">\u001b[0m "
-    << "Phhh... I want to see your blood, Bone leather bag!" << std::endl;
+    std::cout << "Serena \u001b[35m<" << name << ">\u001b[0m "
+    << "Aaaah... <Sounds of singing>!" << std::endl;
     this->Name = name;
+    type = "Serena\u001b[32m <";
     Hit_points = 100;
     Max_hit_points = 100;
-    Energy_points = 100;
-    Max_energy_points = 100;
+    Energy_points = 50;
+    Max_energy_points = 50;
     Level = 1;
-    Melee_attack_damage = 30;
-    Ranged_attack_damage = 20;
-    Armor_damage_reduction = 5;
-    type = "FR4G-TP \u001b[32m <";
+    Melee_attack_damage = 20;
+    Ranged_attack_damage = 15;
+    Armor_damage_reduction = 3;
 };
-std::string FragTrap::get_name()
-{
-    return(Name);
-}
 
-FragTrap::FragTrap(const FragTrap &ptr){
+ScavTrap::ScavTrap(const ScavTrap &ptr){
     *this = ptr;
 }
 
-FragTrap &FragTrap::operator= (FragTrap const &ptr)
+ScavTrap &ScavTrap::operator= (ScavTrap const &ptr)
 {
     this->Name = ptr.Name;
     this->Hit_points = ptr.Hit_points;
@@ -65,23 +61,27 @@ FragTrap &FragTrap::operator= (FragTrap const &ptr)
     return *this;
 }
 
-FragTrap::~FragTrap()
+std::string ScavTrap::get_name()
 {
-    std::cout << type << Name << ">\u001b[0m \u001b[34mWindows blue screen of death...\u001b[0m" << std::endl;
+    return(Name);
 }
-int FragTrap::rangedAttack(std::string const & target)
+ScavTrap::~ScavTrap()
+{
+    std::cout << type << Name << ">\u001b[0m \u001b[34mWho is googl and why does he have the answers to all my riddles?\u001b[0m" << std::endl;
+}
+int ScavTrap::rangedAttack(std::string const & target)
 {
     std::cout << type << Name << ">\u001b[0m atack: \u001b[31m<" << target << ">\u001b[0m" << " at range, causing <"
     << Ranged_attack_damage << "> points of damage!" << std::endl;
     return(Ranged_attack_damage);
 }
-int FragTrap::meleeAttack(std::string const & target)
+int ScavTrap::meleeAttack(std::string const & target)
 {
     std::cout << type << Name << ">\u001b[0m atack: \u001b[31m<" << target << ">\u001b[0m" << " at melee, causing <"
     << Melee_attack_damage << "> points of damage!" << std::endl;
     return (Melee_attack_damage);
 }
-void FragTrap::takeDamage(unsigned int amount)
+void ScavTrap::takeDamage(unsigned int amount)
 {
     if (amount > 0)
     {
@@ -99,31 +99,29 @@ void FragTrap::takeDamage(unsigned int amount)
         }
     }
 }
-int FragTrap::vaulthunter_dot_exe(std::string const & target)
+void ScavTrap::challengeNewcomer(void)
 {
     std::string attack_options[5];
-    attack_options[0] = "with a raw spiked club- ";
-    attack_options[1] = "with a large raw spiked club- ";
-    attack_options[2] = "inflicts psychological trauma on you with an intro subject- ";
-    attack_options[3] = "hacks the account and buys the tiz- ";
-    attack_options[4] = "make @chanel from your slack to adm- ";
+    attack_options[0] = "Where are cities without houses, rivers without water, and forests without trees? ";
+    attack_options[1] = "What's bigger if you put it upside down? ";
+    attack_options[2] = "How to pick a branch so as not to scare the bird? ";
+    attack_options[3] = "How many months in a year have 28 days? ";
+    attack_options[4] = "Which clock shows the correct time only twice a day? ";
     if (Energy_points - 25 >= 0)
     {
         srand(time(NULL));
-        
+
         sleep(1);
         Energy_points = Energy_points - 25;
-        std::cout << type << Name << ">\u001b[0m atack: \u001b[31m" << target << "\u001b[0m " << attack_options[(rand() % 5)] 
-        << Melee_attack_damage << " points of damage!" << std::endl;
-        return(Melee_attack_damage);
+        std::cout << type << Name << ">\u001b[0m Asks a question: " << attack_options[(rand() % 5)] 
+        << std::endl;
     }
     else
     {
-        std::cout << type << Name << ">\u001b[0m" << " Not enough energy to attack! current energy: " << Energy_points << std::endl;
-        return(0);
+        std::cout << type << Name << ">\u001b[0m" << " Not enough energy! current energy: " << Energy_points << std::endl;
     }
 }
-void FragTrap::recovery_hp(int const hp)
+void ScavTrap::recovery_hp(int const hp)
 {
     if(Hit_points + hp >= Max_hit_points)
     {
@@ -136,7 +134,7 @@ void FragTrap::recovery_hp(int const hp)
         std::cout << type << Name << ">\u001b[0m" << " Restored health " << hp << ". Hit points is "<< Hit_points << std::endl;
     }
 }
-void FragTrap::recovery_ep(int const ep)
+void ScavTrap::recovery_ep(int const ep)
 {
     if(Energy_points + ep >= Max_energy_points)
     {
