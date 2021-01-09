@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Peon.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/06 09:49:13 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/09 17:00:47 by hmiso            ###   ########.fr       */
+/*   Created: 2021/01/09 16:50:05 by hmiso             #+#    #+#             */
+/*   Updated: 2021/01/09 16:51:53 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Victim.hpp"
-#include "Sorcerer.hpp"
-#include "Peon.hpp"
+#ifndef PEON_HPP
+#define PEON_HPP
 
-int main()
-{
-	Sorcerer robert("Robert", "the Magnificent");
-	Victim jim("Jimmy");
-	Peon joe("Joe");
-	std::cout << robert << jim << joe;
-	robert.polymorph(jim);
-	robert.polymorph(joe);
-	return 0;
-}
+#include "Victim.hpp"
+
+class Peon : public Victim {
+private:
+	std::string name;
+public:
+	Peon(std::string name);
+	void getPolymorphed() const;
+	~Peon();
+};
+
+#endif

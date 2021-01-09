@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Enemy.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/06 09:49:13 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/09 17:00:47 by hmiso            ###   ########.fr       */
+/*   Created: 2021/01/09 20:01:33 by hmiso             #+#    #+#             */
+/*   Updated: 2021/01/09 21:53:49 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Victim.hpp"
-#include "Sorcerer.hpp"
-#include "Peon.hpp"
+#ifndef ENEMY_HPP
+#define ENEMY_HPP
 
-int main()
-{
-	Sorcerer robert("Robert", "the Magnificent");
-	Victim jim("Jimmy");
-	Peon joe("Joe");
-	std::cout << robert << jim << joe;
-	robert.polymorph(jim);
-	robert.polymorph(joe);
-	return 0;
-}
+#include <iostream>
+
+class Enemy{
+protected:
+	int hp;
+	std::string type;
+public:
+	Enemy(int hp, std::string type);
+	std::string virtual getType() const;
+	int getHP() const;
+	void setHP(int hp);
+	virtual ~Enemy() {}
+	virtual void takeDamage(int damage);
+	Enemy(Enemy const &ptr);
+	Enemy &operator = (Enemy const &ptr);
+};
+
+#endif

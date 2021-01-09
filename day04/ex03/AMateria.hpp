@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/06 09:49:13 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/09 17:00:47 by hmiso            ###   ########.fr       */
+/*   Created: 2021/01/09 13:38:38 by hmiso             #+#    #+#             */
+/*   Updated: 2021/01/09 14:41:29 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Victim.hpp"
-#include "Sorcerer.hpp"
-#include "Peon.hpp"
+#ifndef AMATERIA_HPP
+#define AMATERIA_HPP
 
-int main()
+#include <iostream>
+#include "ICharacter.hpp"
+
+class AMateria
 {
-	Sorcerer robert("Robert", "the Magnificent");
-	Victim jim("Jimmy");
-	Peon joe("Joe");
-	std::cout << robert << jim << joe;
-	robert.polymorph(jim);
-	robert.polymorph(joe);
-	return 0;
-}
+private:
+	unsigned int _xp;
+	std::string _type;
+public:
+	AMateria(std::string const & type);
+	virtual ~AMateria();
+	std::string const & getType() const;
+	unsigned int getXP() const;
+	virtual AMateria* clone() const = 0;
+	virtual void use(ICharacter& target);
+};
+
+#endif

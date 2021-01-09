@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Squad.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/06 09:49:13 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/09 17:00:47 by hmiso            ###   ########.fr       */
+/*   Created: 2021/01/09 22:35:18 by hmiso             #+#    #+#             */
+/*   Updated: 2021/01/09 22:47:47 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Victim.hpp"
-#include "Sorcerer.hpp"
-#include "Peon.hpp"
+#ifndef SQUAD_HPP
+#define SQUAD_HPP
 
-int main()
-{
-	Sorcerer robert("Robert", "the Magnificent");
-	Victim jim("Jimmy");
-	Peon joe("Joe");
-	std::cout << robert << jim << joe;
-	robert.polymorph(jim);
-	robert.polymorph(joe);
-	return 0;
-}
+#include "ISquad.hpp"
+#include <iostream>
+
+class Squad : public ISquad{
+private:
+	int count;
+	ISpaceMarine **squad;
+public:
+	Squad();
+	Squad(Squad const &ptr);
+	Squad &operator = (Squad const &ptr);
+	int getCount() const;
+	ISpaceMarine *getUnit(int i) const;
+	int push(ISpaceMarine *ptr);
+	~Squad();
+};
+
+#endif

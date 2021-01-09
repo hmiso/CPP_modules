@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RadScorpion.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/06 09:49:13 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/09 17:00:47 by hmiso            ###   ########.fr       */
+/*   Created: 2021/01/09 21:06:43 by hmiso             #+#    #+#             */
+/*   Updated: 2021/01/09 21:10:23 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Victim.hpp"
-#include "Sorcerer.hpp"
-#include "Peon.hpp"
+#ifndef RADSCORPION_HPP
+#define RADSCORPION_HPP
 
-int main()
-{
-	Sorcerer robert("Robert", "the Magnificent");
-	Victim jim("Jimmy");
-	Peon joe("Joe");
-	std::cout << robert << jim << joe;
-	robert.polymorph(jim);
-	robert.polymorph(joe);
-	return 0;
-}
+#include "Enemy.hpp"
+
+class RadScorpion : public Enemy{
+public:
+	RadScorpion();
+	~RadScorpion();
+	void takeDamage(int damage);
+	RadScorpion(RadScorpion const &ptr);
+	RadScorpion &operator = (RadScorpion const &ptr);
+};
+
+#endif
