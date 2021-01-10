@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 13:41:32 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/09 15:23:07 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/10 17:51:53 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,14 @@
 	{
 		return this->_xp;
 	}
-
+	void AMateria::set_hp(int xp)
+	{
+		this->_xp = xp;
+	}
+	void AMateria::set_type(std::string type)
+	{
+		this->_type = type;
+	}	
 	void AMateria::use(ICharacter& target)
 	{
 		_xp += 10;
