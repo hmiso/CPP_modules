@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:50:05 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/09 16:51:53 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/10 19:36:34 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ private:
 public:
 	Peon(std::string name);
 	void getPolymorphed() const;
-	~Peon();
+	virtual ~Peon();
 };
 
 #endif

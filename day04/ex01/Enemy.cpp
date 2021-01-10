@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 20:05:10 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/09 20:10:37 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/10 19:49:02 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,12 @@ void Enemy::setHP(int hp) {
 }
 
 void Enemy::takeDamage(int damage){
-	if (damage > 0)
+	if (damage > 0 && hp > 0)
+	{
 		hp = hp - damage;
+		if (hp < 0)
+			hp = 0;
+	}
 }
 
 Enemy::Enemy(Enemy const &ptr){

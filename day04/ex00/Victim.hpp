@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 15:32:05 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/09 16:12:02 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/10 18:56:39 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
 	Victim(const Victim& ptr);
 	Victim &operator = (const Victim &ptr);
 	void virtual getPolymorphed() const;
-	~Victim();
+	virtual ~Victim();
 };
 
 std::ostream &operator<<(std::ostream &stream, const Victim &ptr);

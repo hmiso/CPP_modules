@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 21:10:25 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/09 21:56:34 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/10 19:50:06 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void RadScorpion::takeDamage(int damage)
 		if(getHP() > 0)
 		{
 			setHP(getHP() - (damage - 3));
+			if (getHP() < 0)
+				setHP(0);
 		}
 	}
 }

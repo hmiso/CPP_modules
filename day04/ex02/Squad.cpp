@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 22:38:32 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/09 22:49:06 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/10 20:35:29 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,19 @@ Squad::Squad(Squad const &ptr)
 
 Squad &Squad::operator=(Squad const &ptr)
 {
+	int i = 0;
+	while (i < this->count)
+	{
+		delete this->squad[i];
+		i++;
+	}
+	i = 0;
+	while(i < ptr.count)
+	{
+		this->squad[i] = ptr.squad[i];
+		i++;
+	}
 	this->count = ptr.count;
-	this->squad = ptr.squad;
 	return *this;
 }
 

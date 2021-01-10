@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 22:51:49 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/09 22:53:01 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/10 10:56:12 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
 	void battleCry() const;
 	void rangedAttack() const;
 	void meleeAttack() const;
-	ISpaceMarine* clone() const;
+	ISpaceMarine *clone() const;
 	~TacticalMarine();
 };
 

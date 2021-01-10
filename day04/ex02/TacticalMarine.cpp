@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 22:53:02 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/09 22:57:23 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/10 10:56:37 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void TacticalMarine::rangedAttack() const{
 void TacticalMarine::meleeAttack() const{
 	std::cout << "* attacks with a chainsword *" << std::endl;
 }
-ISpaceMarine* clone() const {
+ISpaceMarine* TacticalMarine::clone() const {
 	TacticalMarine *ptr = new TacticalMarine(*this);
 	return ptr;
 }

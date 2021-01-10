@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 20:49:28 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/09 22:01:43 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/10 19:44:36 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ public:
 	void attack();
 	PowerFist &operator = (PowerFist const &ptr);
 	PowerFist(PowerFist const &ptr) : AWeapon(ptr) {}
+	virtual ~PowerFist() {}
 };
 
 #endif

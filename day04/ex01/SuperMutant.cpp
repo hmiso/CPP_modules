@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 21:58:02 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/09 21:59:31 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/10 19:50:33 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void SuperMutant::takeDamage(int damage)
 		if(getHP() > 0)
 		{
 			setHP(getHP() - (damage - 3));
+			if (getHP() < 0)
+				setHP(0);			
 		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 22:18:39 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/09 22:26:28 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/10 10:57:20 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,20 @@ AssaultTerminator &AssaultTerminator:: operator=(AssaultTerminator const &ptr)
 void AssaultTerminator::battleCry() const{
 	std::cout << "This code is unclean. PURIFY IT!" << std::endl;
 }
+
 void AssaultTerminator::rangedAttack() const{
 	std::cout << "* does nothing *" << std::endl;
 }
+
 void AssaultTerminator::meleeAttack() const{
 	std::cout << "* attacks with chainfists *" << std::endl;
 }
-ISpaceMarine* clone() const {
+
+ISpaceMarine* AssaultTerminator::clone() const {
 	AssaultTerminator *ptr = new AssaultTerminator(*this);
 	return ptr;
 }
+
 AssaultTerminator::~AssaultTerminator(){
 	std::cout << "I’ll be back..." << std::endl;
 }
