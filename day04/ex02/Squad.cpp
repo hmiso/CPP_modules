@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 22:38:32 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/10 20:35:29 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/11 16:17:10 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,13 @@ Squad::Squad()
 
 Squad::Squad(Squad const &ptr)
 {
-	*this = ptr;
+	int i = 0;
+	while(i < ptr.count)
+	{
+		this->squad[i] = ptr.squad[i]->clone();
+		i++;
+	}
+	this->count = ptr.count;
 }
 
 Squad &Squad::operator=(Squad const &ptr)
@@ -33,9 +39,11 @@ Squad &Squad::operator=(Squad const &ptr)
 		i++;
 	}
 	i = 0;
+	this->count = 0;
 	while(i < ptr.count)
 	{
-		this->squad[i] = ptr.squad[i];
+		// this->squad[i] = ptr.squad[i];
+		this->push(ptr.squad[i]);
 		i++;
 	}
 	this->count = ptr.count;
@@ -65,14 +73,14 @@ int Squad::push(ISpaceMarine *ptr){
 	i = 0;
 	while(i < count)
 	{
-		mas_new_sqwad[i] = squad[i];
+		mas_new_sqwad[i] = squad[i]->clone();
 		i++;
 	}
 	mas_new_sqwad[i] = ptr;
 	delete[] squad;
 	squad = mas_new_sqwad;
 	count =  i + 1;
-	return i;
+	return count;
 }
 Squad::~Squad(){
 	int i = 0;

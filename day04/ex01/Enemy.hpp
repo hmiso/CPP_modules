@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 20:01:33 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/09 21:53:49 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/11 13:47:11 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class Enemy{
 protected:
 	int hp;
 	std::string type;
+	Enemy();
 public:
 	Enemy(int hp, std::string type);
 	std::string virtual getType() const;

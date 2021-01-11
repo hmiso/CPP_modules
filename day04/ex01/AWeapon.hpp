@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 19:27:13 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/09 22:01:20 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/11 14:04:21 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ protected:
 	std::string name;
 	int damage;
 	int apcost;
+	AWeapon();
 public:
 	AWeapon(std::string const &name, int apcost, int damage);
 	std::string getName() const;
