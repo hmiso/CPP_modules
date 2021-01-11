@@ -6,14 +6,14 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 15:16:46 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/05 11:19:35 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/05 13:30:08 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(){
-	std::cout << "ClapTrap \u001b[35m<Parent" << ">\u001b[0m "
+	std::cout << "ClapTrap <Parent" << "> "
 	<< " constructor caused by" << std::endl;
 	this->Name = "";
 	Hit_points = 0;
@@ -47,7 +47,7 @@ ClapTrap &ClapTrap::operator= (ClapTrap const &ptr)
 }
 
 ClapTrap::ClapTrap(std::string name){
-	std::cout << "ClapTrap \u001b[35m<" << name << ">\u001b[0m "
+	std::cout << "ClapTrap <" << name << "> "
 	<< " constructor caused by" << std::endl;
 	this->Name = name;
 	Hit_points = 0;
@@ -79,12 +79,12 @@ void ClapTrap::takeDamage(unsigned int amount)
 		if (Hit_points < 0)
 		{
 			Hit_points = 0;
-			std::cout << type << Name << ">\u001b[0m What is dead cannot die!" <<
+			std::cout << type << Name << "> What is dead cannot die!" <<
 			". Hit points: " << Hit_points << std::endl;
 		}
 		else
 		{
-			std::cout << type << Name << ">\u001b[0m Take damage " << amount - Armor_damage_reduction <<
+			std::cout << type << Name << "> Take damage " << amount - Armor_damage_reduction <<
 			". Hit points: " << Hit_points << std::endl;
 		}
 	}
@@ -93,41 +93,41 @@ void ClapTrap::recovery_hp(int const hp)
 {
 	if(Hit_points + hp >= Max_hit_points)
 	{
-		std::cout << type << Name << ">\u001b[0m" << " Restored health " << this->Max_hit_points -  this->Hit_points << ". Hit points is fuul!" << std::endl;
+		std::cout << type << Name << ">" << " Restored health " << this->Max_hit_points -  this->Hit_points << ". Hit points is fuul!" << std::endl;
 			this->Hit_points =  this->Max_hit_points;
 	}
 	else
 	{
 			this->Hit_points += hp;
-		std::cout << type << Name << ">\u001b[0m" << " Restored health " << hp << ". Hit points is "<<  this->Hit_points << std::endl;
+		std::cout << type << Name << ">" << " Restored health " << hp << ". Hit points is "<<  this->Hit_points << std::endl;
 	}
 }
 void ClapTrap::recovery_ep(int const ep)
 {
 	if(Energy_points + ep >= Max_energy_points)
 	{
-		std::cout <<  this->type <<  this->Name << ">\u001b[0m" << " Restored energy: \u001b[32m" <<  this->Max_energy_points -  this->Energy_points << "\u001b[0m. Energy points is fuul!" << std::endl;
+		std::cout <<  this->type <<  this->Name << ">" << " Restored energy: " <<  this->Max_energy_points -  this->Energy_points << ". Energy points is fuul!" << std::endl;
 			this->Energy_points = this->Max_energy_points;
 	}
 	else
 	{
 			this->Energy_points +=  ep;
-		std::cout  <<  this->type <<  this->Name << ">\u001b[0m" << " Restored energu: \u001b[32m" << ep << "\u001b[0m Energy points is "<<  this->Energy_points << std::endl;
+		std::cout  <<  this->type <<  this->Name << ">" << " Restored energu: " << ep << " Energy points is "<<  this->Energy_points << std::endl;
 	}
 }
 int ClapTrap::rangedAttack(std::string const & target)
 {
-	std::cout << type << Name << ">\u001b[0m atack: \u001b[31m<" << target << ">\u001b[0m" << " at range, causing <"
+	std::cout << type << Name << "> atack: <" << target << ">" << " at range, causing <"
 	<< this->Ranged_attack_damage << "> points of damage!" << std::endl;
 	return(Ranged_attack_damage);
 }
 int ClapTrap::meleeAttack(std::string const & target)
 {
-	std::cout << this->type << Name << ">\u001b[0m atack: \u001b[31m<" << target << ">\u001b[0m" << " at melee, causing <"
+	std::cout << this->type << Name << "> atack: <" << target << ">" << " at melee, causing <"
 	<< Melee_attack_damage << "> points of damage!" << std::endl;
 	return (Melee_attack_damage);
 }	
 ClapTrap::~ClapTrap(){
-	std::cout << "ClapTrap \u001b[35m<"<< Name << ">\u001b[0m "
+	std::cout << "ClapTrap <"<< Name << "> "
 	<< " destructor caused by" << std::endl;
 }

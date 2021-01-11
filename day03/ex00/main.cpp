@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 10:54:55 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/01 10:29:58 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/05 12:48:40 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,14 @@ int main()
 	miki.recovery_ep(10);
 	ruck.recovery_hp(10);
 	ruck.recovery_hp(200);
+	ruck.takeDamage(miki.vaulthunter_dot_exe(ruck.get_name()));
+	ruck.takeDamage(miki.vaulthunter_dot_exe(ruck.get_name()));
+	ruck.takeDamage(miki.vaulthunter_dot_exe(ruck.get_name()));
+	ruck.takeDamage(miki.vaulthunter_dot_exe(ruck.get_name()));
+	ruck.takeDamage(miki.vaulthunter_dot_exe(ruck.get_name()));
+	ruck.takeDamage(miki.vaulthunter_dot_exe(ruck.get_name()));
 	ruck.takeDamage(miki.meleeAttack(ruck.get_name()));
 	ruck.takeDamage(miki.meleeAttack(ruck.get_name()));
 	ruck.takeDamage(miki.meleeAttack(ruck.get_name()));
-	ruck.takeDamage(miki.meleeAttack(ruck.get_name()));
-	ruck.takeDamage(miki.meleeAttack(ruck.get_name()));
-	ruck.takeDamage(miki.meleeAttack(ruck.get_name()));
+
 }

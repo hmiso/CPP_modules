@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 22:53:02 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/10 10:56:37 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/10 22:21:16 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,5 @@ ISpaceMarine* TacticalMarine::clone() const {
 	return ptr;
 }
 TacticalMarine::~TacticalMarine(){
-	std::cout << "I’ll be back..." << std::endl;
+	std::cout << "Aaargh..." << std::endl;
 }

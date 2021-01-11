@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/31 19:04:42 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/04 17:28:52 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/05 13:05:27 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ FragTrap::FragTrap()
 
 FragTrap::FragTrap(std::string name)
 {
-    std::cout << "FR4G-TP \u001b[35m <" << name << ">\u001b[0m "
+    std::cout << "FR4G-TP  <" << name << "> "
     << "Phhh... I want to see your blood, Bone leather bag!" << std::endl;
     this->Name = name;
     Hit_points = 100;
@@ -39,7 +39,7 @@ FragTrap::FragTrap(std::string name)
     Melee_attack_damage = 30;
     Ranged_attack_damage = 20;
     Armor_damage_reduction = 5;
-    type = "FR4G-TP \u001b[32m <";
+    type = "FR4G-TP  <";
 };
 
 FragTrap::FragTrap(const FragTrap &ptr){
@@ -63,7 +63,7 @@ FragTrap &FragTrap::operator= (FragTrap const &ptr)
 
 FragTrap::~FragTrap()
 {
-    std::cout << type << Name << ">\u001b[0m \u001b[34mWindows blue screen of death...\u001b[0m" << std::endl;
+    std::cout << type << Name << "> Windows blue screen of death..." << std::endl;
 }
 
 int FragTrap::vaulthunter_dot_exe(std::string const & target)
@@ -80,13 +80,13 @@ int FragTrap::vaulthunter_dot_exe(std::string const & target)
         
         sleep(1);
         Energy_points = Energy_points - 25;
-        std::cout << type << Name << ">\u001b[0m atack: \u001b[31m" << target << "\u001b[0m " << attack_options[(rand() % 5)] 
+        std::cout << type << Name << "> atack: " << target << " " << attack_options[(rand() % 5)] 
         << Melee_attack_damage << " points of damage!" << std::endl;
         return(Melee_attack_damage);
     }
     else
     {
-        std::cout << type << Name << ">\u001b[0m" << " Not enough energy to attack! current energy: " << Energy_points << std::endl;
+        std::cout << type << Name << ">" << " Not enough energy to attack! current energy: " << Energy_points << std::endl;
         return(0);
     }
 }

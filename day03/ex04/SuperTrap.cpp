@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 11:27:04 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/05 11:42:29 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/05 13:29:42 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ SuperTrap::SuperTrap(std::string name) : ClapTrap(name), NinjaTrap(name), FragTr
 	this->Ranged_attack_damage = FragTrap::Ranged_attack_damage;
 	FragTrap::set_amor();
 	this->Armor_damage_reduction = FragTrap::Armor_damage_reduction;
-	this->type = "Super_Trap \u001b[32m <";
+	this->type = "Super_Trap  <";
 }
 SuperTrap::~SuperTrap(){
-	std::cout << "Super_Trap \u001b[32m <" << Name << ">\u001b[0m has been destoyed" << std::endl;
+	std::cout << "Super_Trap  <" << Name << "> has been destoyed" << std::endl;
 }
 void SuperTrap::rangedAttack(std::string const & target)
 {

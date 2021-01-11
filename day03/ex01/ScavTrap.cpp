@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/01 10:42:04 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/04 15:02:09 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/05 12:54:23 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ ScavTrap::ScavTrap()
 
 ScavTrap::ScavTrap(std::string name)
 {
-    std::cout << "Serena \u001b[35m<" << name << ">\u001b[0m "
+    std::cout << "Serena <" << name << "> "
     << "Aaaah... <Sounds of singing>!" << std::endl;
     this->Name = name;
-    type = "Serena\u001b[32m <";
+    type = "Serena <";
     Hit_points = 100;
     Max_hit_points = 100;
     Energy_points = 50;
@@ -67,17 +67,17 @@ std::string ScavTrap::get_name()
 }
 ScavTrap::~ScavTrap()
 {
-    std::cout << type << Name << ">\u001b[0m \u001b[34mWho is googl and why does he have the answers to all my riddles?\u001b[0m" << std::endl;
+    std::cout << type << Name << "> Who is googl and why does he have the answers to all my riddles?" << std::endl;
 }
 int ScavTrap::rangedAttack(std::string const & target)
 {
-    std::cout << type << Name << ">\u001b[0m atack: \u001b[31m<" << target << ">\u001b[0m" << " at range, causing <"
+    std::cout << type << Name << "> atack: <" << target << ">" << " at range, causing <"
     << Ranged_attack_damage << "> points of damage!" << std::endl;
     return(Ranged_attack_damage);
 }
 int ScavTrap::meleeAttack(std::string const & target)
 {
-    std::cout << type << Name << ">\u001b[0m atack: \u001b[31m<" << target << ">\u001b[0m" << " at melee, causing <"
+    std::cout << type << Name << "> atack: <" << target << ">" << " at melee, causing <"
     << Melee_attack_damage << "> points of damage!" << std::endl;
     return (Melee_attack_damage);
 }
@@ -89,12 +89,12 @@ void ScavTrap::takeDamage(unsigned int amount)
         if (Hit_points < 0)
         {
             Hit_points = 0;
-            std::cout << type << Name << ">\u001b[0m What is dead cannot die!" <<
+            std::cout << type << Name << "> What is dead cannot die!" <<
             ". Hit points: " << Hit_points << std::endl;
         }
         else
         {
-            std::cout << type << Name << ">\u001b[0m Take damage " << amount - Armor_damage_reduction <<
+            std::cout << type << Name << "> Take damage " << amount - Armor_damage_reduction <<
             ". Hit points: " << Hit_points << std::endl;
         }
     }
@@ -113,37 +113,37 @@ void ScavTrap::challengeNewcomer(void)
 
         sleep(1);
         Energy_points = Energy_points - 25;
-        std::cout << type << Name << ">\u001b[0m Asks a question: " << attack_options[(rand() % 5)] 
+        std::cout << type << Name << "> Asks a question: " << attack_options[(rand() % 5)] 
         << std::endl;
     }
     else
     {
-        std::cout << type << Name << ">\u001b[0m" << " Not enough energy! current energy: " << Energy_points << std::endl;
+        std::cout << type << Name << ">" << " Not enough energy! current energy: " << Energy_points << std::endl;
     }
 }
 void ScavTrap::recovery_hp(int const hp)
 {
     if(Hit_points + hp >= Max_hit_points)
     {
-        std::cout << type << Name << ">\u001b[0m" << " Restored health " << Max_hit_points - Hit_points << ". Hit points is fuul!" << std::endl;
+        std::cout << type << Name << ">" << " Restored health " << Max_hit_points - Hit_points << ". Hit points is fuul!" << std::endl;
         Hit_points = Max_hit_points;
     }
     else
     {
         Hit_points += hp;
-        std::cout << type << Name << ">\u001b[0m" << " Restored health " << hp << ". Hit points is "<< Hit_points << std::endl;
+        std::cout << type << Name << ">" << " Restored health " << hp << ". Hit points is "<< Hit_points << std::endl;
     }
 }
 void ScavTrap::recovery_ep(int const ep)
 {
     if(Energy_points + ep >= Max_energy_points)
     {
-        std::cout << type << Name << ">\u001b[0m" << " Restored energy: \u001b[32m" << Max_energy_points - Energy_points << "\u001b[0m. Energy points is fuul!" << std::endl;
+        std::cout << type << Name << ">" << " Restored energy: " << Max_energy_points - Energy_points << ". Energy points is fuul!" << std::endl;
         Energy_points = Max_energy_points;
     }
     else
     {
         Energy_points += ep;
-        std::cout  << type << Name << ">\u001b[0m" << " Restored energu: \u001b[32m" << ep << "\u001b[0m Energy points is "<< Energy_points << std::endl;
+        std::cout  << type << Name << ">" << " Restored energu: " << ep << " Energy points is "<< Energy_points << std::endl;
     }
 }

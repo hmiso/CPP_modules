@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 17:56:30 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/05 11:25:05 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/05 13:31:01 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 	NinjaTrap::NinjaTrap(std::string name)
 	{
-		std::cout << "Ninja \u001b[35m <" << name << ">\u001b[0m "
+		std::cout << "Ninja <" << name << "> "
 		<< "Phhh... A witty phrase from!" << std::endl;
 		this->Name = name;
 		Hit_points = 60;
@@ -26,7 +26,7 @@
 		Melee_attack_damage = 60;
 		Ranged_attack_damage = 5;
 		Armor_damage_reduction = 0;
-		type = "Ninja \u001b[32m <";
+		type = "Ninja  <";
 	}
 	NinjaTrap::NinjaTrap()
 	{
@@ -66,25 +66,25 @@
 	void NinjaTrap::set_melee_atack() {this->Melee_attack_damage = 60;}
 	void NinjaTrap::set_ranged_atack() {this->Ranged_attack_damage = 5;}
 	void NinjaTrap::set_amor() {this->Armor_damage_reduction = 0;}
-	void NinjaTrap::set_type() {this->type = "Ninja \u001b[32m <";}	
+	void NinjaTrap::set_type() {this->type = "Ninja  <";}	
 	
 	void NinjaTrap::ninjaShoebox(FragTrap & name){
 		std::cout << type << "There's supposed to be a fun action here but I've been put on " 
-		<< "If this is important to you then passed a link to the class \u001b[32m" << name.get_type() << "\u001b[0m" << std::endl;
+		<< "If this is important to you then passed a link to the class " << name.get_type() << "" << std::endl;
 	}
 	void NinjaTrap::ninjaShoebox(ScavTrap & name){
 		std::cout << type << "There's supposed to be a fun action here but I've been put on " 
-		<< "If this is important to you then passed a link to the class \u001b[32m" << name.get_type() << "\u001b[0m" << std::endl;
+		<< "If this is important to you then passed a link to the class " << name.get_type() << "" << std::endl;
 	}
 	void NinjaTrap::ninjaShoebox(NinjaTrap & name){
 		std::cout << type << "There's supposed to be a fun action here but I've been put on" 
-		<< "If this is important to you then passed a link to the class \u001b[32m" << name.get_type() << "\u001b[0m" << std::endl;
+		<< "If this is important to you then passed a link to the class " << name.get_type() << "" << std::endl;
 	}
 	void NinjaTrap::ninjaShoebox(ClapTrap & name){
 		std::cout << type << "There's supposed to be a fun action here but I've been put on" << std::endl;
-		std::cout << "If this is important to you then passed a link to the class \u001b[32m" << name.get_type() << "\u001b[0m" << std::endl;
+		std::cout << "If this is important to you then passed a link to the class " << name.get_type() << "" << std::endl;
 	}	
 	NinjaTrap::~NinjaTrap()
 	{
-    	std::cout << "Ninja \u001b[32m <" << Name << ">\u001b[34m I am officially informing you that the NinjaTrap destructor has been called\u001b[0m" << std::endl;
+    	std::cout << "Ninja  <" << Name << "> I am officially informing you that the NinjaTrap destructor has been called" << std::endl;
 	}

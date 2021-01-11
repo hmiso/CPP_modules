@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/01 10:42:04 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/04 17:23:33 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/05 13:00:49 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ ScavTrap::ScavTrap()
 
 ScavTrap::ScavTrap(std::string name)
 {
-    std::cout << "Serena \u001b[35m<" << name << ">\u001b[0m "
+    std::cout << "Serena <" << name << "> "
     << "Aaaah... <Sounds of singing>!" << std::endl;
     this->Name = name;
-    type = "Serena\u001b[32m <";
+    type = "Serena <";
     Hit_points = 100;
     Max_hit_points = 100;
     Energy_points = 50;
@@ -63,7 +63,7 @@ ScavTrap &ScavTrap::operator= (ScavTrap const &ptr)
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << type << Name << ">\u001b[0m \u001b[34mWho is googl and why does he have the answers to all my riddles?\u001b[0m" << std::endl;
+    std::cout << type << Name << "> Who is googl and why does he have the answers to all my riddles?" << std::endl;
 }
 
 void ScavTrap::challengeNewcomer(void)
@@ -80,11 +80,11 @@ void ScavTrap::challengeNewcomer(void)
 
         sleep(1);
         Energy_points = Energy_points - 25;
-        std::cout << type << Name << ">\u001b[0m Asks a question: " << attack_options[(rand() % 5)] 
+        std::cout << type << Name << "> Asks a question: " << attack_options[(rand() % 5)] 
         << std::endl;
     }
     else
     {
-        std::cout << type << Name << ">\u001b[0m" << " Not enough energy! current energy: " << Energy_points << std::endl;
+        std::cout << type << Name << ">" << " Not enough energy! current energy: " << Energy_points << std::endl;
     }
 }
