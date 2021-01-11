@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 13:38:38 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/10 18:31:49 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/11 17:29:34 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class AMateria
 private:
 	unsigned int _xp;
 	std::string _type;
+	AMateria();
 public:
 	AMateria(std::string const & type);
 	virtual ~AMateria();

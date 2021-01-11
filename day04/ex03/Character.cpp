@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 17:25:11 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/10 17:32:44 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/11 17:59:15 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ Character::Character(std::string name)
 		slots[i] = NULL;
 		i++;
 	}
+	this->count_clots = 0;
 }
 Character::Character(Character const &ptr)
 {

@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 18:14:09 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/10 18:41:30 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/11 18:04:00 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &ptr)
 void MateriaSource::learnMateria(AMateria *ptr){
 	if (ptr && count_slots < 4)
 	{
-		slots[count_slots] = ptr->clone();
+		slots[count_slots] = ptr;
 		count_slots++;
 	}
 }

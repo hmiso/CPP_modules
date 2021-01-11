@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 17:42:58 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/10 18:29:58 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/11 18:07:35 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,117 +18,8 @@
 #include "IMateriaSource.hpp"
 #include "MateriaSource.hpp"
 
-// class Character : public ICharacter{
-// private:
-// 	std::string name;
-// 	AMateria *slots[4];
-// 	int count_clots;
-// public:
-// 	Character(std::string name){
-// 		this->name = name;
-// 		int i = 0;
-// 		while(i < 4)
-// 		{
-// 			slots[i] = NULL;
-// 			i++;
-// 		}
-// 	}
-// 	std::string const & getName() const {
-// 		return name;
-// 	}
-// 	void equip(AMateria *m){
-// 		if( count_clots < 4)
-// 		{
-// 			slots[count_clots] = m;
-// 			count_clots++;
-// 		}
-// 	}
-// 	void unequip(int idx){
-// 		if (idx >= 0 && idx <= count_clots)
-// 			slots[idx] = NULL;
-// 	}
-// 	void use(int idx, ICharacter& target)
-// 	{
-// 		if (idx >= 0 && idx < count_clots && slots[idx])
-// 			slots[idx]->use(target);
-// 	}
-// 	~Character(){
-// 		int i = 0;
-// 		while(i < 4)
-// 		{
-// 			if (slots[i] != NULL)
-// 				delete slots[i];
-// 			i++;	
-// 		}
-// 	}
-// };
 
-// class IMateriaSource
-// {
-// 	public:
-// 	virtual ~IMateriaSource() {}
-// 	virtual void learnMateria(AMateria *ptr) = 0;
-// 	virtual AMateria* createMateria(std::string const & type) = 0;
-// };
-
-// class MateriaSource : public IMateriaSource{
-// private:
-// 	AMateria *slots[4];
-// 	int count_slots;
-// public:
-// 	void learnMateria(AMateria *ptr){
-// 		if (ptr && count_slots < 4)
-// 		{
-// 			slots[count_slots] = ptr->clone();
-// 			count_slots++;
-// 		}
-// 	}
-// 	AMateria* createMateria(std::string const &type){
-// 		int i = 0;
-// 		if (count_slots != 0)
-// 		{
-// 			while(i < count_slots)
-// 			{
-// 				if(slots[i]->getType() == type)
-// 				{
-// 					return slots[i]->clone();
-// 				}
-// 			i++;
-// 			}
-// 		}
-// 		return NULL;
-// 	}
-// };
-
-// class Ice : public AMateria{
-// public:
-// 	Ice() : AMateria("ice") {}
-
-// 	void use(ICharacter& target){
-// 		AMateria::use(target);
-// 		std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
-// 	}
-
-// 	AMateria* clone() const {
-// 		return new Ice();
-// 	}
-// };
-
-// class Cure : public AMateria{
-// public:
-// 	Cure() : AMateria("cure") {}
-
-// 	void use(ICharacter& target){
-// 		AMateria::use(target);
-// 		std::cout << "* heals " << target.getName() <<  "’s wounds *" << std::endl;
-// 	}
-// 	AMateria* clone() const {
-// 		return new Cure();
-// 	}
-// };
-
-int main()
-{
+int	main() {
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
@@ -144,5 +35,25 @@ int main()
 	delete bob;
 	delete me;
 	delete src;
+	std::cout << std::endl << "MORE TESTING!!!" << std::endl;
+	MateriaSource source;
+	source.learnMateria(new Ice());
+	source.learnMateria(new Cure());
+	source.learnMateria(source.createMateria("ice"));
+	source.learnMateria(source.createMateria("cure"));
+	source.learnMateria(new Ice()); //creates a leak in the main
+	Character he = Character("he");
+	Character they(he);
+	they.equip(source.createMateria("ice"));
+	they.equip(source.createMateria("ice"));
+	they.equip(source.createMateria("cure"));
+	they.equip(source.createMateria("cure"));
+	they.equip(source.createMateria("cure")); //creates a leak in the main
+	they.use(-1, he);
+	they.use(0, he);
+	they.use(1, he);
+	they.use(2, he);
+	they.use(3, he);
+	they.use(4, he);
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 17:02:23 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/10 18:36:58 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/11 17:30:00 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ private:
 	std::string name;
 	AMateria *slots[4];
 	int count_clots;
+	Character();
 public:
 	Character(std::string name);
 	Character(Character const &ptr);

@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 13:09:58 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/11 15:58:43 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/11 16:42:05 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ int main()
 	Squad	more;
 	ISpaceMarine* david = new TacticalMarine;
 	ISpaceMarine* peter = new AssaultTerminator;
-	// if (more.push(david) || more.push(peter))
-	// 	return (EXIT_FAILURE);
 	more.push(david);
 	more.push(peter);
 	Squad	more2(more);
@@ -44,8 +42,6 @@ int main()
 	Squad	othr;
 	ISpaceMarine* kris = new AssaultTerminator;
 	ISpaceMarine* mom = new TacticalMarine;
-	// if (othr.push(kris) || othr.push(mom))
-	// 	return (EXIT_FAILURE);
 	othr.push(kris);
 	othr.push(mom);
 	more3 = othr;
