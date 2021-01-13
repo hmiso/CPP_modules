@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 22:38:32 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/11 17:16:22 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/12 15:19:21 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Squad::Squad(Squad const &ptr)
 	int i = 0;
 	while(i < ptr.count)
 	{
-		this->squad[i] = ptr.squad[i]->clone();
+		this->push(ptr.squad[i]->clone());
 		i++;
 	}
 	this->count = ptr.count;
