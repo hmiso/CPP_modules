@@ -8,7 +8,7 @@
 			"type": "lldb",
 			"request": "launch",
 			"name": "Debug",
-			"program": "${workspaceFolder}/day04/ex02/a.out",
+			"program": "${workspaceFolder}/day05/ex02/a.out",
 			"args": [],
 			"cwd": "${workspaceFolder}"
 		}

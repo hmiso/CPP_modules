@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 09:07:21 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/16 11:24:00 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/17 17:37:00 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,22 @@ void Bureaucrat::lowGrade(){
 		throw Bureaucrat::GradeTooLowException();
 	else
 		grade += 1;
+}
+
+void Bureaucrat::signForm(Form &ptr){
+
+	if (ptr.get_is_signed()){
+		std::cout << ptr.get_name() << " has already been signed!" << std::endl;
+	}
+	else{
+		if (ptr.get_grade_singature() >= getGrade()){
+			std::cout << getName() << " signs " << ptr.get_name() << std::endl;
+			ptr.beSigned(*this);
+		}
+		else{
+			std::cout << getName() << " cannot sign " << ptr.get_name() << " because his grade is too low!" << std::endl;			
+		}
+	}	
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &ptr){

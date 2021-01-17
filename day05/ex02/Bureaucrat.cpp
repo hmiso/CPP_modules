@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 09:07:21 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/16 11:24:00 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/17 17:40:37 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,38 @@ void Bureaucrat::lowGrade(){
 		throw Bureaucrat::GradeTooLowException();
 	else
 		grade += 1;
+}
+
+void Bureaucrat::signForm(Form &ptr){
+
+	if (ptr.get_is_signed()){
+		std::cout << ptr.get_name() << " has already been signed!" << std::endl;
+	}
+	else{
+		if (ptr.get_grade_singature() >= getGrade()){
+			std::cout << getName() << " signs " << ptr.get_name() << std::endl;
+			ptr.beSigned(*this);
+		}
+		else{
+			std::cout << getName() << " cannot sign " << ptr.get_name() << " because his grade is too low!" << std::endl;			
+		}
+	}	
+}
+
+
+void Bureaucrat::executeForm(Form const & form){
+	if (form.get_is_signed()){
+		if (form.get_grede_exucte() >= this->grade){
+			std::cout << name << "is executing " << form.get_name() << std::endl;
+			form.execute(*this);
+		}
+		else{
+			std::cout << name << " can't execute " << form.get_name() << " because, his grade is too small!" << std::endl;
+		}
+	}
+	else{
+		std::cout << form.get_name() << " is not singned!" << std::endl;
+	}
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &ptr){
