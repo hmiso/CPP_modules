@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 05:48:44 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/25 17:17:52 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/25 18:44:29 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,23 +49,29 @@ bool Cast::convertToChar(long int value){
 	return true;
 
 }
-bool Cast::convertToDouble(long value, double value2){
-	if (value > DBL_MAX || value <  DBL_MIN){
+bool Cast::convertToDouble(long int value, double value2){
+	if (value > std::numeric_limits<int>::max() || value < std::numeric_limits<int>::min()){
 		return false;
 	}
-	this->valueDouble = static_cast<double>(value) + value2;
+	if (value > 0)
+		this->valueDouble = static_cast<double>(value) + value2;
+	else
+	this->valueDouble = static_cast<double>(value) - value2;
 	return true;
 }
 bool Cast::convertToFloat(long int value, double value2){
-	if (value > FLT_MAX || value < FLT_MIN){
+	if (value > std::numeric_limits<int>::max() || value < std::numeric_limits<int>::min()){
 		return false;
 	}
-	this->valueFloat = static_cast<float>(value) + value2;
+	if (value > 0)
+		this->valueFloat = static_cast<float>(value) + value2;
+	else 
+		this->valueFloat = static_cast<float>(value) - value2;
 	return true;
 }
 void Cast::convertarg(char *ptr){
-	char *end;
-	char *end2;
+	char *end = (char*)"\0";
+	char *end2 = (char*)"\0";
 	std::string convertValue2;
 	char *ptr2;
 	double value2 = 0;
@@ -80,17 +86,18 @@ void Cast::convertarg(char *ptr){
 		}
 		value2 = strtod(ptr2, &end2) / delemiter;		
 	}
-	long long int value = strtod(ptr, &end);
-	if (!convertToChar(value) || strlen(end) >= 2 || (strlen(end) == 1 && end[0] != 'f') || strlen(end2) >= 2 || (strlen(end2) == 1 && end2[0] != 'f')){
+	long int value = strtod(ptr, &end);
+	long int mas[4] = {value, value, value, value};
+	if (!convertToChar(mas[0]) || strlen(end) >= 2 || (strlen(end) == 1 && end[0] != 'f') || strlen(end2) >= 2 || (strlen(end2) == 1 && end2[0] != 'f')){
 		this->sacsesConvertToChar = false;
 	}
-	if (!convertToInt(value) || strlen(end) >= 2 || (strlen(end) == 1 && end[0] != 'f') || strlen(end2) >= 2 || (strlen(end2) == 1 && end2[0] != 'f')){
+	if (!convertToInt(mas[1]) || strlen(end) >= 2 || (strlen(end) == 1 && end[0] != 'f') || strlen(end2) >= 2 || (strlen(end2) == 1 && end2[0] != 'f')){
 		this->sacsesConvertToInt = false;		
 	}
-	if (!convertToDouble(value, value2) || strlen(end) >= 2 || (strlen(end) == 1 && end[0] != 'f') || strlen(end2) >= 2 || (strlen(end2) == 1 && end2[0] != 'f')){
+	if (!convertToDouble(mas[2], value2) || strlen(end) >= 2 || (strlen(end) == 1 && end[0] != 'f') || strlen(end2) >= 2 || (strlen(end2) == 1 && end2[0] != 'f')){
 		this->sacsesConvertToDouble = false;		
 	}
-	if (!convertToFloat(value, value2) || strlen(end) >= 2 || (strlen(end) == 1 && end[0] != 'f') || strlen(end2) >= 2 || (strlen(end2) == 1 && end2[0] != 'f')){
+	if (!convertToFloat(mas[3], value2) || strlen(end) >= 2 || (strlen(end) == 1 && end[0] != 'f') || strlen(end2) >= 2 || (strlen(end2) == 1 && end2[0] != 'f')){
 		this->sacsesConvertToFloat = false;		
 	}
 }

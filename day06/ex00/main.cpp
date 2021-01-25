@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 05:48:59 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/25 13:51:11 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/25 18:36:18 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,18 @@ int main(int argc, char **argv)
 
 	std::string argvs = argv[1];
 	if (argvs == "nan" || argvs == "nanf" || argvs == "-inff" || argvs == "+inff" || argvs == "+inf" || argvs == "-inf"){
-		std::cout << "impossible" << std::endl;
-		std::cout << "impossible" << std::endl;
+		std::cout << "char: " << "impossible" << std::endl;
+		std::cout << "int: "  << "impossible" << std::endl;
 		if (argvs == "nan" || argvs == "+inf" || argvs == "-inf"){
-			std::cout << argvs << "f" << std::endl;
+			std::cout << "float: " << argvs << "f" << std::endl;
 		} else {
-			std::cout << argvs << std::endl;
+			std::cout << "float: " << argvs << std::endl;
 		}
 		if (argvs == "nanf" || argvs == "+inff" || argvs == "-inff"){
 			argvs.resize(argvs.length() - 1);
-			std::cout << argvs << std::endl; 
+			std::cout << "double: " << argvs << std::endl; 
 		} else {
-			std::cout << argvs << std::endl;
+			std::cout << "double: " << argvs << std::endl;
 		}
 		return 0;
 	}
