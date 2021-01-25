@@ -6,19 +6,19 @@
 #    By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/14 21:35:31 by hmiso             #+#    #+#              #
-#    Updated: 2021/01/25 17:11:37 by hmiso            ###   ########.fr        #
+#    Updated: 2021/01/25 17:36:56 by hmiso            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=convert 
+NAME=serialization
 
-OBJ_FILES = main.o Cast.o
+OBJ_FILES = main.o
 
 CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OBJ_FILES) Cast.hpp
+$(NAME): $(OBJ_FILES)
 	clang++ $(OBJ_FILES) -o $(NAME)
 
 %.o: %.c 

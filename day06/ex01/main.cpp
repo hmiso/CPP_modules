@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 15:26:21 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/25 16:24:03 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/25 17:45:37 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void * serialize(void)
 		reinterpret_cast<char*>(ptr)[i] = str[rand() % 58];
 		i++;
 	}
-	*reinterpret_cast<int*>(&(ptr)[8]) = rand();
+	*reinterpret_cast<int*>(&(ptr)[8]) = rand() % 100000000;
 	i += 4;
 	while (i < 20)
 	{
@@ -53,10 +53,27 @@ Data * deserialize(void * raw)
 }
 int main()
 {
+	int i = 0;
 	srand(time(NULL));
 	void *ptr = serialize();
 	Data *ptr2 = deserialize(ptr);
-	std::cout << ptr2->s1 << std::endl;
-	std::cout << ptr2->n << std::endl;
-	std::cout << ptr2->s2 << std::endl;
+	std::cout << ptr2->s1 << "   |   ";
+	while (i < 8)
+	{
+		std::cout << reinterpret_cast<char*>(ptr)[i];
+		i++;
+	}
+	std::cout << std::endl;
+	std::cout << ptr2->n  << "   |   ";
+	std::cout << (reinterpret_cast<int*>(ptr))[2] << std::endl;
+	i += 4;
+
+	std::cout << ptr2->s2 << "   |   ";
+	while (i < 20)
+	{
+		std::cout << reinterpret_cast<char*>(ptr)[i];
+		i++;
+	}
+	std::cout << std::endl;
+	delete ptr2;
 }

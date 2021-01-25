@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 05:48:44 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/25 14:09:28 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/01/25 17:17:52 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,23 +74,23 @@ void Cast::convertarg(char *ptr){
 	ptr2 = strtok(NULL, ".");
 	if (ptr2){
 		convertValue2 = ptr2;
-		for (int i = 0; i < convertValue2.length(); i++){
+		for (int i = 0; i < (int)convertValue2.length(); i++){
 			if (isdigit(convertValue2[i]))
 				delemiter *= 10;
 		}
 		value2 = strtod(ptr2, &end2) / delemiter;		
 	}
 	long long int value = strtod(ptr, &end);
-	if (!convertToChar(value) || strlen(end) >= 2 || (strlen(end) == 1 && end[0] != 'f')){
+	if (!convertToChar(value) || strlen(end) >= 2 || (strlen(end) == 1 && end[0] != 'f') || strlen(end2) >= 2 || (strlen(end2) == 1 && end2[0] != 'f')){
 		this->sacsesConvertToChar = false;
 	}
-	if (!convertToInt(value) || strlen(end) >= 2 || (strlen(end) == 1 && end[0] != 'f')){
+	if (!convertToInt(value) || strlen(end) >= 2 || (strlen(end) == 1 && end[0] != 'f') || strlen(end2) >= 2 || (strlen(end2) == 1 && end2[0] != 'f')){
 		this->sacsesConvertToInt = false;		
 	}
-	if (!convertToDouble(value, value2) || strlen(end) >= 2 || (strlen(end) == 1 && end[0] != 'f')){
+	if (!convertToDouble(value, value2) || strlen(end) >= 2 || (strlen(end) == 1 && end[0] != 'f') || strlen(end2) >= 2 || (strlen(end2) == 1 && end2[0] != 'f')){
 		this->sacsesConvertToDouble = false;		
 	}
-	if (!convertToFloat(value, value2) || strlen(end) >= 2 || (strlen(end) == 1 && end[0] != 'f')){
+	if (!convertToFloat(value, value2) || strlen(end) >= 2 || (strlen(end) == 1 && end[0] != 'f') || strlen(end2) >= 2 || (strlen(end2) == 1 && end2[0] != 'f')){
 		this->sacsesConvertToFloat = false;		
 	}
 }
