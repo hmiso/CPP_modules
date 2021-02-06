@@ -6,7 +6,7 @@
 /*   By: hmiso <hmiso@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 10:21:46 by hmiso             #+#    #+#             */
-/*   Updated: 2021/01/31 13:10:05 by hmiso            ###   ########.fr       */
+/*   Updated: 2021/02/06 17:38:27 by hmiso            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Span::Span(unsigned int n){
 }
 
 void Span::addNumber(int n){
-	if (this->mas.capacity() > this->n) {
+	if ((int)this->mas.capacity() > this->n) {
 		mas[this->n] = n;
 		this->n++;
 	} else {
@@ -28,7 +28,7 @@ void Span::addNumber(int n){
 
 void Span::addNumber(std::vector<int>::iterator first, std::vector<int>::iterator last){
 	while(first != last){
-		if (this->mas.capacity() > this->n){
+		if ((int)this->mas.capacity() > this->n){
 			mas[this->n] = (*first);
 			this->n++;
 			first++;
@@ -59,4 +59,10 @@ int Span::longestSpan(){
 
 Span::~Span(){
 	mas.clear();
+}
+
+Span &Span::operator = (Span const &ptr){
+	this->mas = ptr.mas;
+	this->n = ptr.n;
+	return (*this);
 }
